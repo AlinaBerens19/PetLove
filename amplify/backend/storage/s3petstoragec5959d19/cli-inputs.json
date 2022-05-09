@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3petstoragec5959d19",
+  "bucketName": "pet-storage-c5959d19",
+  "policyUUID": "caf1fbc7",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

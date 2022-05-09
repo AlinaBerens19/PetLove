@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "PetsLove"
+include ':app'
+include ':core'
+include ':pet'
+include ':pet:pet-datasource'
+include ':pet:pet-domain'
+include ':pet:pet-interactors'
+include ':pet:ui-petDetail'
+include ':pet:ui-petList'
+include ':pet:ui-yourAdds'
+include ':pet:ui-addNewAd'
+include ':pet:pet-datasource-test'
+include ':constants'
+include ':components'

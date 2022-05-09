@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PetsLove</string>
+    <string name="Cat">pet_kind_cat</string>
+    <string name="Dog">pet_kind_dog</string>
+    <string name="Bird">pet_kind_bird</string>
+    <string name="Horse">pet_kind_horse</string>
+</resources>

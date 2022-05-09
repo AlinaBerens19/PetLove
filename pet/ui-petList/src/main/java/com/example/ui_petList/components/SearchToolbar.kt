@@ -1,0 +1,93 @@
+package com.example.ui_petList.components
+
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.ui_petList.ui.ListStateEvent
+
+@ExperimentalComposeUiApi
+@Composable
+fun SearchToolbar(
+    petName: String,
+    onPetNameChange: (String) -> Unit,
+    onExecuteSearch: () -> Unit,
+    onShowFilterDialog: () -> Unit,
+) {
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth(),
+        color = MaterialTheme.colors.secondary,
+        elevation = 12.dp,
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+        ) {
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth(.9f)
+                    .padding(8.dp)
+                ,
+                value = petName,
+                onValueChange = {
+                    onPetNameChange(it)
+                    onExecuteSearch()
+                },
+                label = { Text(text = "Search") },
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Done,
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        onExecuteSearch()
+                        keyboardController?.hide()
+                    },
+                ),
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Search Icon") },
+                textStyle = TextStyle(color = MaterialTheme.colors.onSurface),
+                colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.White),
+            )
+            Column(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .clickable {
+                        onShowFilterDialog()
+                    }
+
+            ) {
+                Icon(
+                    modifier = Modifier
+                        .padding(8.dp)
+                    ,
+                    imageVector = Icons.Filled.MoreVert,
+                    contentDescription = "Filter Icon",
+                )
+            }
+        }
+    }
+}

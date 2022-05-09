@@ -1,0 +1,98 @@
+CREATE TABLE pet_Entity(
+    id TEXT NOT NULL PRIMARY KEY,
+    kind TEXT NOT NULL,
+    name TEXT NOT NULL,
+    age INTEGER DEFAULT 0,
+    breed TEXT NOT NULL,
+    sex INTEGER DEFAULT 0,
+    ownerSex INTEGER DEFAULT 0,
+    place TEXT NOT NULL,
+    ownerName TEXT NOT NULL,
+    ownerPhone INTEGER NOT NULL,
+    ownerEmail TEXT NOT NULL,
+    aboutPetInfo TEXT NOT NULL,
+    likes INTEGER DEFAULT 0,
+    firstImage TEXT DEFAULT NULL,
+    secondImage TEXT DEFAULT NULL,
+    thirdImage TEXT DEFAULT NULL,
+    forthImage TEXT DEFAULT NULL,
+    fifthImage TEXT DEFAULT NULL
+);
+
+selectAll:
+SELECT *
+FROM pet_Entity;
+
+insertPet:
+INSERT OR REPLACE
+INTO pet_Entity(
+    id,
+    kind,
+    name,
+    age,
+    breed,
+    sex,
+    ownerSex,
+    place,
+    ownerName,
+    ownerPhone,
+    ownerEmail,
+    aboutPetInfo,
+    likes,
+    firstImage,
+    secondImage,
+    thirdImage,
+    forthImage,
+    fifthImage
+) VALUES(?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+searchPetByKind:
+SELECT * FROM pet_Entity
+WHERE kind LIKE ('%' || :query || '%');
+
+searchPetByBreed:
+SELECT * FROM pet_Entity
+WHERE breed LIKE ('%' || :query || '%');
+
+searchPetByPlace:
+SELECT * FROM pet_Entity
+WHERE place LIKE ('%' || :query || '%');
+
+selectAllFemails:
+SELECT * FROM pet_Entity
+WHERE sex == 0;
+
+selectAllMails:
+SELECT * FROM pet_Entity
+WHERE sex == 1;
+
+getPet:
+SELECT * FROM pet_Entity
+WHERE id = :id;
+
+deletePet:
+DELETE FROM pet_Entity
+WHERE id = :id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

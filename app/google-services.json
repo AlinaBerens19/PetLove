@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "230475384658",
+    "project_id": "petslove-90b78",
+    "storage_bucket": "petslove-90b78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230475384658:android:cbe94acca198a745865c8b",
+        "android_client_info": {
+          "package_name": "com.example.petslove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230475384658-kgiae9o2416tnf825483rl9sv82rn4kl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS1vkagbKgoO7ZvpgcRXSBJdaqtFhjl-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "230475384658-kgiae9o2416tnf825483rl9sv82rn4kl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
